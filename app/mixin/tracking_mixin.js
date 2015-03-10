@@ -7,12 +7,18 @@ var MixpanelMixin = Ember.Mixin.create({
         return window.mixpanel && typeof window.mixpanel === "object" && config.mixpanel.enabled;
     },
 
-    logTrackingEnabled: function() {;
+    logTrackingEnabled: function() {
         return !!config && !! config.mixpanel.LOG_EVENT_TRACKING;
     },
 
     logTracking: function() {
         Ember.Logger.info('[Mixpanel] ', arguments);
+    },
+
+    trackRouteChange: function(page) {
+        if (! config.mixpanel.disable_auto_tracking) {
+            this.trackPageView(page)
+        }
     },
 
     trackPageView: function(page) {
