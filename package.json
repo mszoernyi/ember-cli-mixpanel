@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-mixpanel",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Ember CLI addon for tracking users activities via Mixpanel",
   "directories": {
     "doc": "doc",
