@@ -18,14 +18,15 @@ There are some options available to configure the mixpanel addon. Only `token` i
 mixpanel: {
   enabled: false,
   LOG_EVENT_TRACKING: false,
-  token: 'b619c413e0d49a362236388a4f5ec679'
+  token: 'b619c413e0d49a362236388a4f5ec679',
+  disable_auto_tracking: true // default: false
 }
 ```
 
 ### Tracking Page Views
 
 Once included your router will automatically send a page view event to
-Mixpanel everytime the URL changes.
+Mixpanel everytime the URL changes. This behavior can be disabled with `disable_auto_tracking: true`.
 
 ### Tracking Additional Events
 
