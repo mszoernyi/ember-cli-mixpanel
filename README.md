@@ -6,9 +6,9 @@ An Ember-CLI addon that eases integration between your application and [Mixpanel
 
 Add `ember-cli-mixpanel` as a dependency to your `package.json` or just run `ember install:addon ember-cli-mixpanel`.
 
-There is one manual step, which includes our wrapper in your Router. Just extend your Router with `tracking_mixin.js`.
-
-This addon includes the required Mixpanel script automatically, so no extra effort needed here.
+There are two manual steps
+* Extend your Router with `tracking_mixin.js`.
+* Add a `{{content-for 'mixpanel'}}` to your index.html to include the mixpanel script.
 
 ### Configuration
 
