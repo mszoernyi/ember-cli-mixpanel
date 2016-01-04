@@ -1,4 +1,5 @@
-import MixpanelMixin from '../mixin/tracking_mixin'
+import MixpanelMixin from '../mixin/tracking_mixin';
+import Ember from 'ember';
 
 export function initialize(container) {
     if (container.lookup) {
@@ -10,8 +11,12 @@ export function initialize(container) {
       var routerFactory = container.resolveRegistration('router:main');
       routerFactory.reopen({
         didTransition: function didTransition() {
-          this.trackRouteChange(this.get('url'));
-          return this._super.apply(this, arguments);
+          var self = this;
+          this._super.apply(this, arguments);
+          // Must run this later for the URL to have changed
+          Ember.run.schedule('afterRender', function() {
+            self.trackRouteChange(self.get('url'));
+          });
         }
       });
     }
