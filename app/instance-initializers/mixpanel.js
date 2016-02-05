@@ -1,7 +1,7 @@
 import MixpanelMixin from '../mixin/tracking_mixin'
 
-export function initialize(container) {
-    var router = container.lookup('router:main');
+export function initialize(instance) {
+    var router = instance.container.lookup('router:main');
     router.on('didTransition', function() {
       this.trackRouteChange(this.get('url'));
     });
